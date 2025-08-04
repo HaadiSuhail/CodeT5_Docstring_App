@@ -5,7 +5,9 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 @st.cache_resource
 def load_model():
     tokenizer = AutoTokenizer.from_pretrained("Salesforce/codet5-small")
-    model = AutoModelForSeq2SeqLM.from_pretrained("Salesforce/codet5-small")
+    model = AutoModelForSeq2SeqLM.from_pretrained(
+        "./model/run3_output/checkpoint-60000"
+    )
     return tokenizer, model
 
 tokenizer, model = load_model()
