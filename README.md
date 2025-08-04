@@ -47,15 +47,16 @@ streamlit run app.py
 
 ### 🧪 Example
 
+```python
 
-Input:
+# Input:
 def count_vowels(text):
     return sum(1 for char in text if char.lower() in "aeiou")
 
 
-Output (Fine-tuned model):
+# Output (Fine-tuned model):
 Return the number of vowels in the given text.
-
+```
 
 License
 MIT License
