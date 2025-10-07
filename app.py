@@ -4,9 +4,9 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 # Load model and tokenizer once (cache them)
 @st.cache_resource
 def load_model():
-    tokenizer = AutoTokenizer.from_pretrained("Salesforce/codet5-small")
+    tokenizer = AutoTokenizer.from_pretrained("Salesforce/codet5-base")
     model = AutoModelForSeq2SeqLM.from_pretrained(
-        "./model/run3_output/checkpoint-60000"
+        "./model"
     )
     return tokenizer, model
 
@@ -23,7 +23,7 @@ if st.button("Generate Docstring"):
         st.warning("Please enter some code.")
     else:
         # Add prefix to tell model what to do
-        prefixed_input = "translate code to docstring: " + code_input
+        prefixed_input = "generate docstring: " + code_input
 
         # Encode the input
         inputs = tokenizer.encode(
@@ -36,10 +36,9 @@ if st.button("Generate Docstring"):
         # Generate output IDs
         output_ids = model.generate(
             inputs,
-            max_length=128,
-            num_beams=10,
-            early_stopping=True,
-            no_repeat_ngram_size=2
+            max_length=64,
+            num_beams=5,
+            no_repeat_ngram_size=3
         )
         # Decode generated text
         generated_docstring = tokenizer.decode(
