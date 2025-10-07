@@ -1,0 +1,25 @@
+# Don't copy Git repo or history
+.git
+.gitignore
+.github/
+
+# Don't copy local environments
+__pycache__/
+.venv/
+venv/
+env/
+
+# Don't copy editor or system files
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Don't copy model or large files
+model/
+*.zip
+*.pt
+*.bin
+*.safetensors
+
+# Don't copy Streamlit cache
+.streamlit/

@@ -1,0 +1,47 @@
+# --- Python cache/temp ---
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+*.egg-info/
+.build/
+dist/
+build/
+
+# --- Virtual envs & local config ---
+.venv/
+venv/
+env/
+*.env
+.env*
+
+# --- OS/editor junk ---
+.DS_Store
+Thumbs.db
+.vscode/
+
+# --- Notebooks/streamlit aux ---
+.ipynb_checkpoints/
+.streamlit/
+
+# --- ML model artifacts (keep giant files out) ---
+model/
+models/
+checkpoints/
+*.pt
+*.bin
+*.safetensors
+*.onnx
+*.h5
+pytorch_model*.bin
+optimizer.pt
+generation_config.json
+rust_model.ot
+*.msgpack
+*.zip
+
+# --- Caches (HF, datasets, etc.) ---
+cache/
+datasets/
+huggingface/
+.huggingface/
